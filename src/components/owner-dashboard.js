@@ -18,7 +18,7 @@ function theBtn() {
         const pet_type = document.querySelector('input[name="pet-type"]').value.trim();
         const description = document.querySelector('textarea[name="about-pet"]').value.trim();
       
-        if (pet_name, pet_type, description) {
+        if ((pet_name, pet_type, description)) {
           const res = await axios.post('http://localhost:3002/api/pets',
             {
                 pet_name: pet_name,

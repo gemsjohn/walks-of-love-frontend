@@ -1,6 +1,8 @@
 import React from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { increment, decrement } from '../actions';
+import PetsCard from './partials/pets-card';
+import JobsCard from './partials/jobs-card';
 
 function OwnerDash() {
     return (
@@ -12,7 +14,7 @@ function OwnerDash() {
                     <h1>Your Pets</h1>
                     <div id="pet-cards" class="d-flex flex-row">
 
-                        {/* {{> pets-card ownersPets}} */}
+                        <PetsCard />
 
                         <form class="create-pet-form card" style={{width: '18rem'}}>
                             <div class="card-body">
@@ -55,11 +57,12 @@ function OwnerDash() {
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
                                 <p>List of current jobs</p>
-                                {/* {{> jobs-card jobs}} */}
+                                <JobsCard />
                             </div>
                             <div class="tab-pane" id="tab2">
                                 <p>List of past jobs</p>
-                                {/* {{> jobs-card completedJobs }} */}
+                                {/* THESE SHOULD BE COMPLETED JOBS */}
+                                <JobsCard /> 
                             </div>
                         </div>
 

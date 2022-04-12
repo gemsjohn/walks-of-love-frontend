@@ -1,6 +1,7 @@
 import React from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { increment, decrement } from '../actions';
+import JobsCard from './partials/jobs-card';
 
 function JobSearch() {
     return (
@@ -12,7 +13,7 @@ function JobSearch() {
                     </div>
                     <h1 id="jobs-in-area">Showing jobs in your area</h1>
                     <div class="mt-2">
-                        {/* {{> jobs-card jobs}} */}
+                        <JobsCard />
                     </div>
                 </div>
             </div>

@@ -4,7 +4,6 @@ import axios from 'axios';
 // import { increment, decrement } from '../actions';
 import PetsCard from './partials/pets-card';
 import JobsCard from './partials/jobs-card';
-import { AssignedAddOnExtensionInstance } from 'twilio/lib/rest/api/v2010/account/incomingPhoneNumber/assignedAddOn/assignedAddOnExtension';
 
 function theBtn() {
     // var modal = document.getElementById("exampleModal");
@@ -22,7 +21,6 @@ function theBtn() {
         if (pet_name, pet_type, description) {
           const res = await axios.post('http://localhost:3002/api/pets',
             {
-                id: 0, //need to make this a variable that auto increments
                 pet_name: pet_name,
                 owner_id: owner_id,
                 pet_type: pet_type,

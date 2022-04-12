@@ -5,12 +5,15 @@ import { getUserData } from '../auth';
 import Homepage from './homepage';
 
 
+
 // Main handlebars HTML template. This is a necessity and it handles page formatting. 
 // import { Main } from './handlebars/main';
 
 // Various user pages (Owner / Walker). pets-cards, nav-block, and jobs-card are currently 
 // contained within each one of these files as needed. It may be more appropriate
 // to create standalone JS files for re-use. The current set up is NOT DRY.
+import OwnerDash from './owner-dashboard';
+import WalkerDash from './walker-dashboard';
 
 // import { Dashboard } from './handlebars/dashboard';
 // import { Homepage } from './handlebars/homepage';
@@ -67,10 +70,13 @@ export const Signout = () => {
       <h1>MAIN PAGE</h1>
       {/* The following terenary operators will execute in sequence. */}
       {/* If you find the key in the Owners Table then render the Owner Dashboard.  */}
-      {stxAddress === owner_details(str_stxAddress).o_id ? <h1>OWNER DASH</h1> : console.log("This account is not registered as an Owner.")}
+      {/* {stxAddress === owner_details(str_stxAddress).o_id ? <h1>OWNER DASH</h1> : console.log("This account is not registered as an Owner.")} */}
+      {stxAddress === 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367' ? <OwnerDash /> : console.log("This account is not registered as an Owner.")}
       {/* If you find the key in the Walker Table then render the Walker Dashboard.  */}
-      {stxAddress === walker_details(str_stxAddress).w_id ? <h1>WALKER DASH</h1> : console.log("This account is not registered as a Walker.")}
+      {/* {stxAddress === walker_details(str_stxAddress).w_id ? <h1>WALKER DASH</h1> : console.log("This account is not registered as a Walker.")} */}
+      {stxAddress === 'SP206YJ9G14C3FD0JZE3C92KZ3V35JVNVW93Q0VKQ' ? <WalkerDash /> : console.log("This account is not registered as a Walker.")}
     </div>
     
   );
 };
+

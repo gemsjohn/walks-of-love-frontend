@@ -14,7 +14,7 @@ import Homepage from './homepage';
 // to create standalone JS files for re-use. The current set up is NOT DRY.
 import OwnerDash from './owner-dashboard';
 import WalkerDash from './walker-dashboard';
-import JobSearch from './jobsearch';
+// import JobSearch from './jobsearch';
 
 // import { Dashboard } from './handlebars/dashboard';
 // import { Homepage } from './handlebars/homepage';
@@ -75,7 +75,7 @@ export const Signout = () => {
       {stxAddress === 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367' ? <OwnerDash /> : console.log("This account is not registered as an Owner.")}
       {/* If you find the key in the Walker Table then render the Walker Dashboard.  */}
       {/* {stxAddress === walker_details(str_stxAddress).w_id ? <h1>WALKER DASH</h1> : console.log("This account is not registered as a Walker.")} */}
-      {stxAddress === 'SP206YJ9G14C3FD0JZE3C92KZ3V35JVNVW93Q0VKQ' ? <JobSearch /> : console.log("This account is not registered as a Walker.")}
+      {stxAddress === 'SP206YJ9G14C3FD0JZE3C92KZ3V35JVNVW93Q0VKQ' ? <WalkerDash /> : console.log("This account is not registered as a Walker.")}
     </div>
     
   );

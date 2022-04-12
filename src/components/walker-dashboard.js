@@ -1,6 +1,7 @@
 import React from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { increment, decrement } from '../actions';
+import JobsCard from './partials/jobs-card';
 
 function WalkerDash() {
     return (
@@ -20,11 +21,12 @@ function WalkerDash() {
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
                                 <p>List of current posts</p>
-                                {/* {{> jobs-card jobs}} */}
+                                <JobsCard />
                             </div>
                             <div class="tab-pane" id="tab2">
                                 <p>List of past jobs</p>
-                                {/* {{> jobs-card walkerJobsCompleted }} */}
+                                {/* [NEED]  THESE SHOULD BE COMPLETED JOBS */}
+                                <JobsCard />
                             </div>
                         </div>
                     </div>  

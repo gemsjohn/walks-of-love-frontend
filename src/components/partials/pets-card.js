@@ -1,7 +1,7 @@
 import React from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { increment, decrement } from '../actions';
-import CreateJob from './modal/create-job';
+// import CreateJob from './modal/create-job';
 
 function theBtn() {
     var modal = document.getElementById("exampleModal");

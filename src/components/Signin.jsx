@@ -2,6 +2,8 @@ import React from 'react';
 import { authenticate, disconnect } from '../auth';
 // import { Text } from '@blockstack/ui';
 import { getUserData } from '../auth';
+import Homepage from './homepage';
+
 
 // Main handlebars HTML template. This is a necessity and it handles page formatting. 
 // import { Main } from './handlebars/main';
@@ -36,7 +38,7 @@ export const Signin = () => {
       {/* Render Main handlebars HTML and Homepage handlebars HTML pages. */}
       {/* <Main />
       <Homepage /> */}
-      <h1>MAIN PAGE</h1>
+      <Homepage />
     </div>
   );
 };

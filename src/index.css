@@ -20,6 +20,10 @@ body {
   
 }
 
+.test {
+  color: black;
+}
+
 /* .nav-link {
   background-color: #55C35E !important;
   color: #FFFFFF !important;

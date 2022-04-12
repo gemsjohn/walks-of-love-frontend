@@ -61,7 +61,7 @@ function OwnerDash() {
                             </div>
                             <div class="tab-pane" id="tab2">
                                 <p>List of past jobs</p>
-                                {/* THESE SHOULD BE COMPLETED JOBS */}
+                                {/* [NEED]  THESE SHOULD BE COMPLETED JOBS */}
                                 <JobsCard /> 
                             </div>
                         </div>

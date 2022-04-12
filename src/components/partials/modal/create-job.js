@@ -1,14 +1,9 @@
 import React from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { increment, decrement } from '../actions';
-import CreateJob from './modal/create-job';
 
-function theBtn() {
-    var modal = document.getElementById("exampleModal");
-    modal.style.display = "block";
-}
-
-function PetsCard() {
+function CreateJob() {
+    console.log("CREATED");
     return (
         <div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -49,18 +44,8 @@ function PetsCard() {
                     </div>
                 </div>
             </div>
-            {/* {{#each this}} */}
-            <div class="card mr-4" style={{width: '18rem'}}>
-                <div class="card-body">
-                    <h5 class="card-title">Pet Name</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Pet Type</h6>
-                    <p class="card-text">Description</p>
-                </div>
-                <button class="btn btn-lg btn-success" type="button" data-toggle="modal" data-target="#exampleModal" onClick={() => theBtn()}>New job</button>
-            </div>
-            {/* {{/each}} */}
         </div>
     )
 }
 
-export default PetsCard;
+export default CreateJob;

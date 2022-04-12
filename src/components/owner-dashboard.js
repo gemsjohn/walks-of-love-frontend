@@ -1,9 +1,45 @@
 import React from 'react';
+import axios from 'axios';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { increment, decrement } from '../actions';
 import PetsCard from './partials/pets-card';
 import JobsCard from './partials/jobs-card';
+import { AssignedAddOnExtensionInstance } from 'twilio/lib/rest/api/v2010/account/incomingPhoneNumber/assignedAddOn/assignedAddOnExtension';
 
+function theBtn() {
+    // var modal = document.getElementById("exampleModal");
+    // modal.style.display = "block";
+    // console.log("id: ", id, " first_name: ", first_name);
+
+    async function commentFormHandler() {
+        const pet_name = document.querySelector('input[name="pet-name"]').value.trim();
+      
+        // this owner_id needs to be changed based off of who is logged in
+        const owner_id = 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367';
+        const pet_type = document.querySelector('input[name="pet-type"]').value.trim();
+        const description = document.querySelector('textarea[name="about-pet"]').value.trim();
+      
+        if (pet_name, pet_type, description) {
+          const res = await axios.post('http://localhost:3002/api/pets',
+            {
+                id: 0, //need to make this a variable that auto increments
+                pet_name: pet_name,
+                owner_id: owner_id,
+                pet_type: pet_type,
+                description: description
+            }
+          );
+          return res.data.json;   
+        }
+      }
+      
+    //   document
+    //     .querySelector(".create-pet-form")
+    //     .addEventListener("submit", commentFormHandler);
+      
+    commentFormHandler();
+        
+}
 function OwnerDash() {
     return (
         <div>
@@ -30,7 +66,7 @@ function OwnerDash() {
                                 <textarea id="about-pet-input" class="card-subtitle mb-2 text-muted form-outline" name="about-pet" placeholder="About your pet"></textarea>
                             </div>
                             <div>
-                                <button class="float-right mr-3 mb-3 btn success" type="submit">Confirm</button>
+                                <button class="float-right mr-3 mb-3 btn success" type="submit" onClick={() => theBtn()}>Confirm</button>
                             </div>
                         </form>
 

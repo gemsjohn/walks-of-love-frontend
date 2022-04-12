@@ -40,6 +40,7 @@ function theBtn() {
                         password: password
                     }
                 );
+                return res.data.json;
             }
         }
     }

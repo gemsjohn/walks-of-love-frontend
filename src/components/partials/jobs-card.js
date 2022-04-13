@@ -23,22 +23,22 @@ function JobsCard() {
         }
         // console.log(job_details().allJobs[i].j_owner_first_name);
         jobsCardArray[i] = 
-                <div class="jobs">
-                    <div class="card mb-2">
-                        <div class="card-body">
-                            <h4 class="card-title">{job_details().allJobs[i].j_owner_first_name}</h4>
-                            <h5 class="card-text">Pet: {job_details().allJobs[i].j_pet_name}</h5>
-                            <h5 class="card-subtitle">Visit: {visit}</h5>
-                            <h5 class="card-text">Pay: {job_details().allJobs[i].j_pay}</h5>
-                            <h6 class="card-text text-muted">Time: {job_details().allJobs[i].j_timeframe}</h6>
-                            <h6 class="card-text text-muted">Location: {job_details().allJobs[i].j_location}</h6>
+                <div className="jobs">
+                    <div className="card mb-2">
+                        <div className="card-body">
+                            <h4 className="card-title">{job_details().allJobs[i].j_owner_first_name}</h4>
+                            <h5 className="card-text">Pet: {job_details().allJobs[i].j_pet_name}</h5>
+                            <h5 className="card-subtitle">Visit: {visit}</h5>
+                            <h5 className="card-text">Pay: {job_details().allJobs[i].j_pay}</h5>
+                            <h6 className="card-text text-muted">Time: {job_details().allJobs[i].j_timeframe}</h6>
+                            <h6 className="card-text text-muted">Location: {job_details().allJobs[i].j_location}</h6>
                             {/* {{!-- (HELPER) function that determines if the person logged in is the creator of this job and it's active--}}
                             {/* {{#unless completed}} */}
-                            <button id="delete-job" class="float-right btn success" type="button">Delete</button>
+                            <button id="delete-job" className="float-right btn success" type="button">Delete</button>
                             {/* {{/unless}} */}
                             {/* {{!-- (HELPER) if logged in as walker and job not accepted --}}
                             {{#if acceptable}} */}
-                            <button id="accept-job" class="float-right btn success" type="button">Accept</button>
+                            <button id="accept-job" className="float-right btn success" type="button">Accept</button>
                             {/* {{/if}} */}
                         </div>
                     </div>

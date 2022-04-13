@@ -41,7 +41,7 @@ function theBtnModal() {
         }
 
         if ((pay, location)) {
-            const res = await axios.post('http://localhost:3002/api/jobs', 
+            const res = await axios.post('http://localhost:3001/api/jobs', 
                 {
                     pay: pay,
                     check_in: check_in,
@@ -121,7 +121,7 @@ function PetsCard() {
                     </div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div className="row row-cols-1 row-cols-md-2 g-4">
                 {cardsArray}
             </div>
         </div>

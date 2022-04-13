@@ -3,7 +3,7 @@ import axios from 'axios';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { increment, decrement } from '../actions';
 // import CreateJob from './modal/create-job';
-import { pet_details } from '../fetch'; 
+import { pet_details, job_details } from '../fetch'
 
 function theBtn() {
     var modal = document.getElementById("exampleModal");
@@ -78,9 +78,10 @@ function Cards() {
     }
 }
 
-
 function PetsCard() {
     Cards();
+    // console.log(pet_details().allPets);
+    // console.log(job_details().allJobs);
     return (
         <div>
             <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -10,7 +10,7 @@ export const owner_details = (stxAddress) => {
 
     // Read data from the Heroku DB /ap/owners
     async function myFunction() {
-        const res = await axios.get(`https://pacific-depths-79804.herokuapp.com/api/owners`);
+        const res = await axios.get(`http://localhost:3002/api/owners`);
           //   const body = await res.json(); // NOTE TO SELF: could this be used?
 
         // Loop through all of the data
@@ -55,7 +55,7 @@ export const walker_details = (stxAddress) => {
     let w_email;
 
     async function myFunction() {
-        const res = await axios.get(`https://pacific-depths-79804.herokuapp.com/api/walkers`);
+        const res = await axios.get(`http://localhost:3002/api/walkers`);
         // Loop through the Walkers DB
         for (let i = 0; i < res.data.length; i++) {
             // If a walker_id matches the stxAddress then store that WALKER data locally
@@ -103,7 +103,7 @@ export const job_details = () => {
     let job;
 
     async function myFunction() {
-        const res = await axios.get(`http://localhost:3001/api/jobs`);
+        const res = await axios.get(`http://localhost:3002/api/jobs`);
         // Loop through the Jobs DB
         for (let i = 0; i < res.data.length; i++) {
             // If an owner_id matches the stxAddress then store that JOB data locally
@@ -137,9 +137,10 @@ export const job_details = () => {
                     j_owner_first_name,
                     j_owner_last_name
                 }; 
-
+                allJobs.push(job);
+            } else {
+                console.log("Address not available.");
             }
-            allJobs.push(job);
         }
         localStorage.setItem('allJobs', JSON.stringify(allJobs));
     }
@@ -151,7 +152,6 @@ export const job_details = () => {
     }
 }
 export const pet_details = () => {
-    let pet_id;
     let pet_name;
     let pet_owner_id;
     let pet_type;
@@ -166,23 +166,21 @@ export const pet_details = () => {
         for (let i = 0; i < res.data.length; i++) {
             // If a walker_id matches the stxAddress then store that WALKER data locally
             if (res.data[i].owner_id === 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367') {
-                pet_id = res.data[i].id;
                 pet_name = res.data[i].pet_name;
                 pet_owner_id = res.data[i].owner_id;
                 pet_type = res.data[i].pet_type;
                 pet_description = res.data[i].description;
 
                 pet = {
-                    pet_id,
                     pet_name,
                     pet_owner_id,
                     pet_type,
                     pet_description
                 };
+                allPets.push(pet);
             } else {
                 console.log("Address not available.");
             }
-            allPets.push(pet);
         }
         localStorage.setItem('allPets', JSON.stringify(allPets));
     }

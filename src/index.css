@@ -24,6 +24,12 @@ body {
   color: black;
 }
 
+.pet-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .pets-text {
   color: black;
   font-family: 'Old Standard TT', serif;

@@ -6,10 +6,6 @@ import PetsCard from './partials/pets-card';
 import JobsCard from './partials/jobs-card';
 
 function theBtn() {
-    // var modal = document.getElementById("exampleModal");
-    // modal.style.display = "block";
-    // console.log("id: ", id, " first_name: ", first_name);
-
     async function commentFormHandler() {
         const pet_name = document.querySelector('input[name="pet-name"]').value.trim();
       
@@ -19,7 +15,7 @@ function theBtn() {
         const description = document.querySelector('textarea[name="about-pet"]').value.trim();
       
         if ((pet_name, pet_type, description)) {
-          const res = await axios.post('http://localhost:3002/api/pets',
+          const res = await axios.post('http://localhost:3001/api/pets',
             {
                 pet_name: pet_name,
                 owner_id: owner_id,
@@ -29,11 +25,13 @@ function theBtn() {
           );
           return res.data.json;   
         }
+
       }
       
     commentFormHandler();
-        
 }
+
+
 function OwnerDash() {
     return (
         <div>
@@ -70,29 +68,29 @@ function OwnerDash() {
                     </div>  
                 </div>
                 
-                <div id="jobs-container" class="d-flex flex-column mx-auto" style={{width: '92%'}}>
+                <div id="jobs-container" className="d-flex flex-column mx-auto" style={{width: '92%'}}>
 
-                    <div class="d-flex flex-row justify-content-between mt-2">
+                    <div className="d-flex flex-row justify-content-between mt-2">
                         <h1>Job Postings</h1>
                     </div>
 
-                    <div class="tabbable">
+                    <div className="tabbable">
                         
-                        <ul class="nav nav-tabs">
-                            <li class="active nav-item">
-                                <a class="nav-link active job-tab current-jobs-tab" href="#tab1" data-toggle="tab">Current posts</a>
+                        <ul className="nav nav-tabs">
+                            <li className="active nav-item">
+                                <a className="nav-link active job-tab current-jobs-tab" href="#tab1" data-toggle="tab">Current posts</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link job-tab past-jobs-tab" href="#tab2" data-toggle="tab">Past posts</a>
+                            <li className="nav-item">
+                                <a className="nav-link job-tab past-jobs-tab" href="#tab2" data-toggle="tab">Past posts</a>
                             </li>
                         </ul>
 
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab1">
+                        <div className="tab-content">
+                            <div className="tab-pane active" id="tab1">
                                 <p>List of current jobs</p>
                                 <JobsCard />
                             </div>
-                            <div class="tab-pane" id="tab2">
+                            <div className="tab-pane" id="tab2">
                                 <p>List of past jobs</p>
                                 {/* [NEED]  THESE SHOULD BE COMPLETED JOBS */}
                                 <JobsCard /> 

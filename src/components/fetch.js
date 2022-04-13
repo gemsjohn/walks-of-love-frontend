@@ -141,7 +141,6 @@ export const job_details = () => {
             } else {
                 console.log("Address not available.");
             }
-            
         }
         localStorage.setItem('allJobs', JSON.stringify(allJobs));
     }
@@ -182,7 +181,6 @@ export const pet_details = () => {
             } else {
                 console.log("Address not available.");
             }
-            
         }
         localStorage.setItem('allPets', JSON.stringify(allPets));
     }

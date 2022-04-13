@@ -41,7 +41,7 @@ function theBtnModal() {
         }
 
         if ((pay, location)) {
-            const res = await axios.post('http://localhost:3002/api/jobs', 
+            const res = await axios.post('http://localhost:3001/api/jobs', 
                 {
                     pay: pay,
                     check_in: check_in,
@@ -82,8 +82,6 @@ function PetsCard() {
     Cards();
     // console.log(pet_details().allPets);
     // console.log(job_details().allJobs);
-
-    
     return (
         <div>
             <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

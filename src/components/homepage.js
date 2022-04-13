@@ -20,7 +20,7 @@ function theBtn() {
         if ((id, email, first_name, last_name, password)) {
   
             if(document.getElementById('own').checked) {
-                const res = await axios.post('http://localhost:3002/api/owners', 
+                const res = await axios.post('http://localhost:3001/api/owners', 
                     {
                         id: id,
                         first_name: first_name,
@@ -31,7 +31,7 @@ function theBtn() {
                 );
                 return res.data.json;
             } else if (document.getElementById('walk').checked) {
-                const res = await axios.post('http://localhost:3002/api/walkers', 
+                const res = await axios.post('http://localhost:3001/api/walkers', 
                     {
                         id: id,
                         first_name: first_name,
@@ -53,9 +53,9 @@ function Homepage() {
 
     return (
         <div>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
+            <div id="myModal" className="modal">
+                <div className="modal-content">
+                    <span className="close">&times;</span>
                     <p>Some text in the Modal..</p>
                 </div>
             </div>
@@ -77,26 +77,26 @@ function Homepage() {
 
                                                         <div className="form-outline">
                                                         <input type="id" name="id"id="id" className="form-control" placeholder="id"/>
-                                                        <label className="form-label" for="id"></label>
+                                                        <label className="form-label" for="id" />
                                                     </div>
 
                                                         <input type="text" name="first" id="fist-name" className="form-control" placeholder="First Name"/>
-                                                        <label className="form-label" for="fist-name"></label>
+                                                        <label className="form-label" for="fist-name" />
                                                     </div>
 
                                                     <div className="form-outline">
                                                         <input type="text" name="last" id="last-name" className="form-control" placeholder="Last Name"/>
-                                                        <label className="form-label" for="last-name"></label>
+                                                        <label className="form-label" for="last-name" />
                                                     </div>
 
                                                     <div className="form-outline">
                                                         <input type="email" name="email" id="email" className="form-control" placeholder="Your Email"/>
-                                                        <label className="form-label" for="email"></label>
+                                                        <label className="form-label" for="email" />
                                                     </div>
 
                                                     <div className="form-outline">
                                                         <input type="password" name="password"id="password" className="form-control" placeholder="Password"/>
-                                                        <label className="form-label" for="password"></label>
+                                                        <label className="form-label" for="password" />
                                                     </div>
 
                                                     <div className="form-check form-outline mb-2">

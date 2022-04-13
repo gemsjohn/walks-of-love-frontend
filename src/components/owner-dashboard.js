@@ -25,9 +25,10 @@ function theBtn() {
           );
           return res.data.json;   
         }
-    }
-    
-    commentFormHandler();      
+
+      }
+      
+    commentFormHandler();
 }
 
 
@@ -47,7 +48,7 @@ function OwnerDash() {
                     </div>
                     
                     <div id="pet-cards" className="container">
-                        <form className="create-pet-form card" style={{width: '18rem'}} />
+                        <form className="create-pet-form card" style={{width: '18rem'}}>
                             <div className="card-body">
                                 <h5 className="card-title">Add a Pet</h5>
                                 <div className="form-outline">
@@ -63,7 +64,7 @@ function OwnerDash() {
                             <div>
                                 <button className="float-right mr-3 mb-3 btn success" type="submit" onClick={() => theBtn()}>Confirm</button>
                             </div>
-
+                        </form>
                     </div>  
                 </div>
                 

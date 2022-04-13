@@ -31,43 +31,42 @@ function theBtn() {
         }
       }
       
-    //   document
-    //     .querySelector(".create-pet-form")
-    //     .addEventListener("submit", commentFormHandler);
-      
     commentFormHandler();
         
 }
 function OwnerDash() {
     return (
         <div>
-            <div class="dashboard-container">
-                <h1 id="your-dashboard" class="text-center">Your Dashboard</h1>
-                
-                <div id="pets-container" class="d-flex flex-column mx-auto" style={{width: '92%'}}>
-                    <h1>Your Pets</h1>
-                    <div id="pet-cards" class="d-flex flex-row">
-
-                        <PetsCard />
-
-                        <form class="create-pet-form card" style={{width: '18rem'}}>
-                            <div class="card-body">
-                                <h5 class="card-title">Add a Pet</h5>
-                                <div class="form-outline">
-                                    <input type="text" name="pet-name" class="form-control" placeholder="Pet Name"/>
-                                    <label class="form-label" for="fist-name"></label>
+            <div className="dashboard-container">
+                <h1 id="your-dashboard" className="text-center">Your Dashboard</h1>
+                <div>
+                    <h1 className="pets-text">Your Pets</h1>
+                </div>
+                <div id="pets-container" className="d-flex flex-row mx-auto" style={{width: '92%'}}>
+                    <div className="container col-10">
+                        <div className="row row-cols-1 row-cols-md-3 g-4">
+                            <PetsCard />
+                        </div>
+                    </div>
+                    
+                    <div id="pet-cards" className="container">
+                        <form className="create-pet-form card" style={{width: '18rem'}}>
+                            <div className="card-body">
+                                <h5 className="card-title">Add a Pet</h5>
+                                <div className="form-outline">
+                                    <input type="text" name="pet-name" className="form-control" placeholder="Pet Name"/>
+                                    <label className="form-label" for="fist-name" />
                                 </div>
-                                <div class="form-outline">
-                                    <input type="text" name="pet-type" class="form-control" placeholder="Breed"/>
-                                    <label class="form-label" for="pet-name"></label>
+                                <div className="form-outline">
+                                    <input type="text" name="pet-type" className="form-control" placeholder="Breed"/>
+                                    <label className="form-label" for="pet-name" />
                                 </div>
-                                <textarea id="about-pet-input" class="card-subtitle mb-2 text-muted form-outline" name="about-pet" placeholder="About your pet"></textarea>
+                                <textarea id="about-pet-input" className="card-subtitle mb-2 text-muted form-outline" name="about-pet" placeholder="About your pet"></textarea>
                             </div>
                             <div>
-                                <button class="float-right mr-3 mb-3 btn success" type="submit" onClick={() => theBtn()}>Confirm</button>
+                                <button className="float-right mr-3 mb-3 btn success" type="submit" onClick={() => theBtn()}>Confirm</button>
                             </div>
                         </form>
-
                     </div>  
                 </div>
                 

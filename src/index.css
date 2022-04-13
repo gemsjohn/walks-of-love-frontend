@@ -24,6 +24,12 @@ body {
   color: black;
 }
 
+.pets-text {
+  color: black;
+  font-family: 'Old Standard TT', serif;
+  margin: 0 0 1% 10%;
+}
+
 /* .nav-link {
   background-color: #55C35E !important;
   color: #FFFFFF !important;

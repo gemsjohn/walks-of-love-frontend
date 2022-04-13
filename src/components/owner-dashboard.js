@@ -6,10 +6,6 @@ import PetsCard from './partials/pets-card';
 import JobsCard from './partials/jobs-card';
 
 function theBtn() {
-    // var modal = document.getElementById("exampleModal");
-    // modal.style.display = "block";
-    // console.log("id: ", id, " first_name: ", first_name);
-
     async function commentFormHandler() {
         const pet_name = document.querySelector('input[name="pet-name"]').value.trim();
       
@@ -29,27 +25,27 @@ function theBtn() {
           );
           return res.data.json;   
         }
-      }
-      
-    //   document
-    //     .querySelector(".create-pet-form")
-    //     .addEventListener("submit", commentFormHandler);
-      
-    commentFormHandler();
-        
+    }
+    commentFormHandler();      
 }
+
+
 function OwnerDash() {
     return (
         <div>
             <div class="dashboard-container">
                 <h1 id="your-dashboard" class="text-center">Your Dashboard</h1>
-                
-                <div id="pets-container" class="d-flex flex-column mx-auto" style={{width: '92%'}}>
-                    <h1>Your Pets</h1>
-                    <div id="pet-cards" class="d-flex flex-row">
-
-                        <PetsCard />
-
+                <div>
+                    <h1 class="pets-text">Your Pets</h1>
+                </div>
+                <div id="pets-container" class="d-flex flex-row mx-auto" style={{width: '92%'}}>
+                    <div class="container col-10">
+                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                            <PetsCard />
+                        </div>
+                    </div>
+                    
+                    <div id="pet-cards" class="container">
                         <form class="create-pet-form card" style={{width: '18rem'}}>
                             <div class="card-body">
                                 <h5 class="card-title">Add a Pet</h5>

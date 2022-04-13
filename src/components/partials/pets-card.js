@@ -3,6 +3,7 @@ import axios from 'axios';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { increment, decrement } from '../actions';
 // import CreateJob from './modal/create-job';
+import { pet_details } from '../fetch'; 
 
 function theBtn() {
     var modal = document.getElementById("exampleModal");
@@ -59,7 +60,27 @@ function theBtnModal() {
     createPostHandler();
 }
 
+const cardsArray = [];
+
+function Cards() {
+    for(let i = 0; i < pet_details().allPets.length; i++) {
+        cardsArray[i] =
+            <div className="col">
+                <div className="card">
+                    <div className="card-body">
+                        <h5 className="card-title">{pet_details().allPets[i].pet_name}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">{pet_details().allPets[i].pet_type}</h6>
+                        <p className="card-text">{pet_details().allPets[i].pet_description}</p>
+                    </div>
+                    <button className="btn btn-lg btn-success" type="button" data-toggle="modal" data-target="#exampleModal" onClick={() => theBtn()}>New job</button>
+                </div>
+            </div>
+    }
+}
+
+
 function PetsCard() {
+    Cards();
     return (
         <div>
             <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,16 +121,9 @@ function PetsCard() {
                     </div>
                 </div>
             </div>
-            {/* {{#each this}} */}
-            <div className="card mr-4" style={{width: '18rem'}}>
-                <div className="card-body">
-                    <h5 className="card-title">Pet Name</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">Pet Type</h6>
-                    <p className="card-text">Description</p>
-                </div>
-                <button className="btn btn-lg btn-success" type="button" data-toggle="modal" data-target="#exampleModal" onClick={() => theBtn()}>New job</button>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {cardsArray}
             </div>
-            {/* {{/each}} */}
         </div>
     )
 }

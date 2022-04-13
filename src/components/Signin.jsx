@@ -21,9 +21,10 @@ import WalkerDash from './walker-dashboard';
 // import { Jobsearch } from './handlebars/jobsearch';
 // import { WalkerDash } from './handlebars/walker-dashboard';
 
-import { owner_details, walker_details } from './fetch';
-console.log('owner: ', owner_details().o_id);
-console.log('walker: ', walker_details().w_id);
+// [[[[[[[[NEED TO UNCOMMENT WHEN SEVER GOES LIVE]]]]]]]]
+// import { owner_details, walker_details } from './fetch';
+// console.log('owner: ', owner_details().o_id);
+// console.log('walker: ', walker_details().w_id);
 
 // Signin function. Based on the App.jsx --> render() terenary operator this
 // is the truthy value and exports on the Homepage. Once the user is logged in, 

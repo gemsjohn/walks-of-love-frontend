@@ -103,7 +103,7 @@ export const job_details = () => {
     let job;
 
     async function myFunction() {
-        const res = await axios.get(`http://localhost:3002/api/jobs`);
+        const res = await axios.get(`http://localhost:3001/api/jobs`);
         // Loop through the Jobs DB
         for (let i = 0; i < res.data.length; i++) {
             // If an owner_id matches the stxAddress then store that JOB data locally

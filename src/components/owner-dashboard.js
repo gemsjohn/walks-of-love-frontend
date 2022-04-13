@@ -6,10 +6,6 @@ import PetsCard from './partials/pets-card';
 import JobsCard from './partials/jobs-card';
 
 function theBtn() {
-    // var modal = document.getElementById("exampleModal");
-    // modal.style.display = "block";
-    // console.log("id: ", id, " first_name: ", first_name);
-
     async function commentFormHandler() {
         const pet_name = document.querySelector('input[name="pet-name"]').value.trim();
       
@@ -19,7 +15,7 @@ function theBtn() {
         const description = document.querySelector('textarea[name="about-pet"]').value.trim();
       
         if ((pet_name, pet_type, description)) {
-          const res = await axios.post('http://localhost:3002/api/pets',
+          const res = await axios.post('http://localhost:3001/api/pets',
             {
                 pet_name: pet_name,
                 owner_id: owner_id,

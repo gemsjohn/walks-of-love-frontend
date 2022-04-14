@@ -5,6 +5,26 @@ import axios from 'axios';
 // import CreateJob from './modal/create-job';
 import { pet_details, job_details } from '../fetch'
 
+import { getUserData, userSession } from '../../auth';
+
+let stxAddress;
+let str_stxAddress;
+
+if (userSession.isSignInPending()) {
+    userSession.handlePendingSignIn().then(userData => {
+      window.history.replaceState({}, document.title, '/');
+      this.setState({ userData: userData });
+      console.log("if statement");
+    });
+  } else if (userSession.isUserSignedIn()) {
+    // this.setState({ userData: userSession.loadUserData() });
+    console.log("else if statement");
+    stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
+    str_stxAddress = JSON.stringify(stxAddress);
+    console.log(str_stxAddress);
+
+  }
+
 function theBtn() {
     var modal = document.getElementById("exampleModal");
     modal.style.display = "block";
@@ -26,7 +46,7 @@ function theBtnModal() {
 
         const locationStr = document.querySelector('input[name="location"]').value.trim();
         const location = parseInt(locationStr);
-        const owner_id = 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367'; // replace with a variable
+        const owner_id = stxAddress; // replace with a variable
 
         const visitType = document.getElementById("visit-type");
         const selectedValue = visitType.options[visitType.selectedIndex].value;

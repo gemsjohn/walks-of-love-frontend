@@ -1,5 +1,24 @@
 // Primary dependency
 import axios from 'axios';
+import { getUserData, userSession } from '../auth';
+
+let stxAddress;
+let str_stxAddress;
+
+if (userSession.isSignInPending()) {
+    userSession.handlePendingSignIn().then(userData => {
+      window.history.replaceState({}, document.title, '/');
+      this.setState({ userData: userData });
+      console.log("if statement");
+    });
+  } else if (userSession.isUserSignedIn()) {
+    // this.setState({ userData: userSession.loadUserData() });
+    console.log("else if statement");
+    stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
+    str_stxAddress = JSON.stringify(stxAddress);
+    console.log(str_stxAddress);
+
+  }
 
 // Export owner details: id, first_name, last_name, and email
 export const owner_details = (stxAddress) => {
@@ -10,7 +29,7 @@ export const owner_details = (stxAddress) => {
 
     // Read data from the Heroku DB /ap/owners
     async function myFunction() {
-        const res = await axios.get(`http://localhost:3002/api/owners`);
+        const res = await axios.get(`http://localhost:3001/api/owners`);
           //   const body = await res.json(); // NOTE TO SELF: could this be used?
 
         // Loop through all of the data
@@ -55,7 +74,7 @@ export const walker_details = (stxAddress) => {
     let w_email;
 
     async function myFunction() {
-        const res = await axios.get(`http://localhost:3002/api/walkers`);
+        const res = await axios.get(`http://localhost:3001/api/walkers`);
         // Loop through the Walkers DB
         for (let i = 0; i < res.data.length; i++) {
             // If a walker_id matches the stxAddress then store that WALKER data locally
@@ -107,7 +126,7 @@ export const job_details = () => {
         // Loop through the Jobs DB
         for (let i = 0; i < res.data.length; i++) {
             // If an owner_id matches the stxAddress then store that JOB data locally
-            if (res.data[i].owner_id === 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367') {
+            if (res.data[i].owner_id === stxAddress) {
                 j_id = res.data[i].id;
                 j_pay = res.data[i].pay;
                 j_check_in = res.data[i].check_in;
@@ -165,7 +184,7 @@ export const pet_details = () => {
         // Loop through the Walkers DB
         for (let i = 0; i < res.data.length; i++) {
             // If a walker_id matches the stxAddress then store that WALKER data locally
-            if (res.data[i].owner_id === 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367') {
+            if (res.data[i].owner_id === stxAddress) {
                 pet_name = res.data[i].pet_name;
                 pet_owner_id = res.data[i].owner_id;
                 pet_type = res.data[i].pet_type;

@@ -6,6 +6,8 @@ import { job_details } from './fetch';
 import PetsCard from './partials/pets-card';
 // import JobsCard from './partials/jobs-card';
 
+const jobsCardArray = [];
+
 function theBtn() {
     async function commentFormHandler() {
         const pet_name = document.querySelector('input[name="pet-name"]').value.trim();
@@ -32,11 +34,14 @@ function theBtn() {
     commentFormHandler();
 }
 
-
-
-
-
-const jobsCardArray = [];
+// Currently can be executed manually
+function DeleteJob(num) {
+    async function myFunction() {
+        const res = await axios.delete(`http://localhost:3001/api/jobs/` + num + ``);
+        return res.data.json;
+    }
+    myFunction();
+}
 
 
 function JobsCard() {
@@ -62,7 +67,7 @@ function JobsCard() {
                         <h6 class="card-text text-muted">Location: {job_details().allJobs[i].j_location}</h6>
                         {/* {{!-- (HELPER) function that determines if the person logged in is the creator of this job and it's active--}} */}
                         {/* {{#unless completed}} */}
-                        <button id="delete-job" class="float-right btn success" type="button">Delete</button>
+                        <button id="delete-job" class="float-right btn success" type="button" onClick={() => DeleteJob(job_details().allJobs[i].j_id)}>Delete</button>
                         {/* {{/unless}} */}
                         {/* {{!-- (HELPER) if logged in as walker and job not accepted --}}
                         {{#if acceptable}} */}

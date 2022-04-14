@@ -6,6 +6,26 @@ import { job_details } from './fetch';
 import PetsCard from './partials/pets-card';
 // import JobsCard from './partials/jobs-card';
 
+import { getUserData, userSession } from '../auth';
+
+let stxAddress;
+let str_stxAddress;
+
+if (userSession.isSignInPending()) {
+    userSession.handlePendingSignIn().then(userData => {
+      window.history.replaceState({}, document.title, '/');
+      this.setState({ userData: userData });
+      console.log("if statement");
+    });
+  } else if (userSession.isUserSignedIn()) {
+    // this.setState({ userData: userSession.loadUserData() });
+    console.log("else if statement");
+    stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
+    str_stxAddress = JSON.stringify(stxAddress);
+    console.log(str_stxAddress);
+
+  }
+
 const jobsCardArray = [];
 
 function theBtn() {
@@ -13,7 +33,7 @@ function theBtn() {
         const pet_name = document.querySelector('input[name="pet-name"]').value.trim();
       
         // this owner_id needs to be changed based off of who is logged in
-        const owner_id = 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367';
+        const owner_id = str_stxAddress;
         const pet_type = document.querySelector('input[name="pet-type"]').value.trim();
         const description = document.querySelector('textarea[name="about-pet"]').value.trim();
       

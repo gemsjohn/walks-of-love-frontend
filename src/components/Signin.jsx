@@ -3,6 +3,7 @@ import { authenticate, disconnect } from '../auth';
 // import { Text } from '@blockstack/ui';
 import { getUserData } from '../auth';
 import Homepage from './homepage';
+import JobSearch from './jobsearch';
 
 
 
@@ -16,10 +17,15 @@ import OwnerDash from './owner-dashboard';
 import WalkerDash from './walker-dashboard';
 
 
+
 // [[[[[[[[NEED TO UNCOMMENT WHEN SEVER GOES LIVE]]]]]]]]
-// import { owner_details, walker_details } from './fetch';
-// console.log('owner: ', owner_details().o_id);
-// console.log('walker: ', walker_details().w_id);
+import { owner_details, walker_details } from './fetch';
+console.log('owner: ', owner_details().o_id);
+console.log('walker: ', walker_details().w_id);
+
+function Search() {
+  console.log("placeholder to navigate to search page")
+}
 
 // Signin function. Based on the App.jsx --> render() terenary operator this
 // is the truthy value and exports on the Homepage. Once the user is logged in, 
@@ -60,16 +66,17 @@ export const Signout = () => {
           <ul className="nav navbar-nav ml-auto"></ul>
           <h6 className="address-color">{shortenedStxAddress} </h6>
           <button type="button" className="btn success" onClick={() => disconnect()}>Logout</button>
+          {stxAddress === walker_details(str_stxAddress).w_id ? <button type="button" className="btn success" onClick={() => Search()}>Search</button> : console.log("This account is not registered as a Walker.")}
         </div>
       </div>
       {/* Render the Main handlebars HTML page. */}
       {/* The following terenary operators will execute in sequence. */}
       {/* If you find the key in the Owners Table then render the Owner Dashboard.  */}
       {/* {stxAddress === owner_details(str_stxAddress).o_id ? <h1>OWNER DASH</h1> : console.log("This account is not registered as an Owner.")} */}
-      {stxAddress === 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367' ? <OwnerDash /> : console.log("This account is not registered as an Owner.")}
+      {stxAddress === owner_details(str_stxAddress).o_id ? <OwnerDash /> : console.log("This account is not registered as an Owner.")}
       {/* If you find the key in the Walker Table then render the Walker Dashboard.  */}
-      {/* {stxAddress === walker_details(str_stxAddress).w_id ? <h1>WALKER DASH</h1> : console.log("This account is not registered as a Walker.")} */}
-      {stxAddress === 'SP206YJ9G14C3FD0JZE3C92KZ3V35JVNVW93Q0VKQ' ? <WalkerDash /> : console.log("This account is not registered as a Walker.")}
+      {stxAddress === walker_details(str_stxAddress).w_id ? <WalkerDash /> : console.log("This account is not registered as a Walker.")}
+      {/* {stxAddress === 'SP206YJ9G14C3FD0JZE3C92KZ3V35JVNVW93Q0VKQ' ? <WalkerDash /> : console.log("This account is not registered as a Walker.")} */}
     </div>
     
   );

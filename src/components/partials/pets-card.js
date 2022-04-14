@@ -1,11 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { increment, decrement } from '../actions';
-// import CreateJob from './modal/create-job';
-import { pet_details, job_details } from '../fetch'
+import { pet_details } from '../fetch'
 
-import { getUserData, userSession } from '../../auth';
+import { userSession } from '../../auth';
 
 let stxAddress;
 let str_stxAddress;
@@ -14,14 +11,11 @@ if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
       window.history.replaceState({}, document.title, '/');
       this.setState({ userData: userData });
-      console.log("if statement");
     });
   } else if (userSession.isUserSignedIn()) {
-    // this.setState({ userData: userSession.loadUserData() });
     console.log("else if statement");
     stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
     str_stxAddress = JSON.stringify(stxAddress);
-    console.log(str_stxAddress);
 
   }
 
@@ -31,19 +25,11 @@ function theBtn() {
 }
 
 function theBtnModal() {
-        // var modal = document.getElementById("exampleModal");
-    // modal.style.display = "block";
-    // console.log("id: ", id, " first_name: ", first_name);
 
     async function createPostHandler() {
       
         const payStr = document.querySelector('input[name="pay"]').value.trim();
         const pay = parseInt(payStr);
-
-        // const dateStart = document.getElementById("date-start").value;
-        // const hourStart = document.getElementById("hour-start").value;
-        // const timeframe = dateStart + "T" + hourStart + "Z";
-
         const locationStr = document.querySelector('input[name="location"]').value.trim();
         const location = parseInt(locationStr);
         const owner_id = stxAddress; // replace with a variable
@@ -86,7 +72,7 @@ function Cards() {
     for(let i = 0; i < pet_details().allPets.length; i++) {
         cardsArray[i] =
             <div className="col">
-                <div className="card">
+                <div className="card" style={{width: '20rem', height: '14rem'}}>
                     <div className="card-body">
                         <h5 className="card-title">{pet_details().allPets[i].pet_name}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">{pet_details().allPets[i].pet_type}</h6>
@@ -100,8 +86,6 @@ function Cards() {
 
 function PetsCard() {
     Cards();
-    // console.log(pet_details().allPets);
-    // console.log(job_details().allJobs);
     return (
         <div>
             <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

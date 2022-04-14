@@ -1,15 +1,9 @@
 import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { increment, decrement } from '../actions';
-// import JobsCard from './partials/jobs-card';
 import { job_details } from './fetch';
 
 const jobsCardArray = [];
-let btnHandler;
-
 
 function JobsCard() {
-    console.log(job_details().allJobs);
     for (let i = 0; i < job_details().allJobs.length; i++) {
         let visit;
         if (job_details().allJobs[i].j_check_in === true) {

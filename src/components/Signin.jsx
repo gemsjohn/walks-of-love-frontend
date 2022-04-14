@@ -3,7 +3,6 @@ import { authenticate, disconnect } from '../auth';
 // import { Text } from '@blockstack/ui';
 import { getUserData } from '../auth';
 import Homepage from './homepage';
-import JobSearch from './jobsearch';
 import { owner_details, walker_details } from './fetch';
 
 
@@ -15,13 +14,6 @@ import { owner_details, walker_details } from './fetch';
 // to create standalone JS files for re-use. The current set up is NOT DRY.
 import OwnerDash from './owner-dashboard';
 import WalkerDash from './walker-dashboard';
-
-
-
-// [[[[[[[[NEED TO UNCOMMENT WHEN SEVER GOES LIVE]]]]]]]]
-import { owner_details, walker_details } from './fetch';
-console.log('owner: ', owner_details().o_id);
-console.log('walker: ', walker_details().w_id);
 
 function Search() {
   console.log("placeholder to navigate to search page")

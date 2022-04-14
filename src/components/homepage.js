@@ -1,14 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { increment, decrement } from '../actions';
-// import createAccountHandler from './functionality/create-owner-account';
 
 function theBtn() {
-    // var modal = document.getElementById("exampleModal");
-    // modal.style.display = "block";
-    // console.log("id: ", id, " first_name: ", first_name);
-
     async function createAccountHandler() {
       
         const id = document.querySelector('input[name="id"]').value.trim();

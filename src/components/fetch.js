@@ -1,22 +1,18 @@
 // Primary dependency
 import axios from 'axios';
-import { getUserData, userSession } from '../auth';
+import { userSession } from '../auth';
 
 let stxAddress;
-let str_stxAddress;
+// let str_stxAddress;
 
 if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
       window.history.replaceState({}, document.title, '/');
       this.setState({ userData: userData });
-      console.log("if statement");
     });
   } else if (userSession.isUserSignedIn()) {
-    // this.setState({ userData: userSession.loadUserData() });
-    console.log("else if statement");
     stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
-    str_stxAddress = JSON.stringify(stxAddress);
-    console.log(str_stxAddress);
+    // str_stxAddress = JSON.stringify(stxAddress);
 
   }
 // Export owner details: id, first_name, last_name, and email
@@ -125,7 +121,7 @@ export const job_details = () => {
         // Loop through the Jobs DB
         for (let i = 0; i < res.data.length; i++) {
             // If an owner_id matches the stxAddress then store that JOB data locally
-            if (res.data[i].owner_id === stxAddress) {
+            if (res.data[i].owner_id !== null) {
                 j_id = res.data[i].id;
                 j_pay = res.data[i].pay;
                 j_check_in = res.data[i].check_in;

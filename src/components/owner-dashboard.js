@@ -33,7 +33,7 @@ function theBtn() {
         const pet_name = document.querySelector('input[name="pet-name"]').value.trim();
       
         // this owner_id needs to be changed based off of who is logged in
-        const owner_id = str_stxAddress;
+        const owner_id = stxAddress;
         const pet_type = document.querySelector('input[name="pet-type"]').value.trim();
         const description = document.querySelector('textarea[name="about-pet"]').value.trim();
       

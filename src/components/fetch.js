@@ -19,9 +19,6 @@ if (userSession.isSignInPending()) {
     console.log(str_stxAddress);
 
   }
-  
-
-
 // Export owner details: id, first_name, last_name, and email
 export const owner_details = (stxAddress) => {
     let o_user_id;

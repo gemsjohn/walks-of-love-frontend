@@ -46,7 +46,7 @@ function theBtnModal() {
 
         const locationStr = document.querySelector('input[name="location"]').value.trim();
         const location = parseInt(locationStr);
-        const owner_id = str_stxAddress; // replace with a variable
+        const owner_id = stxAddress; // replace with a variable
 
         const visitType = document.getElementById("visit-type");
         const selectedValue = visitType.options[visitType.selectedIndex].value;

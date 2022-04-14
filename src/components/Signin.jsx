@@ -24,7 +24,6 @@ function Search() {
 // is the truthy value and exports on the Homepage. Once the user is logged in, 
 // then Signout() exports.
 export const Signin = () => {
-  console.log("Sign in");
   return (
     <div>
       <div>
@@ -46,10 +45,8 @@ export const Signin = () => {
 // is the falsy value and exports once the user logs in. Once the user is logged in, 
 // then Signout() exports.
 export const Signout = () => {
-  console.log("Sign out");
   const stxAddress = getUserData().profile.stxAddress.mainnet;
   const str_stxAddress = JSON.stringify(stxAddress);
-  console.log(str_stxAddress);
   const shortenedStxAddress = stxAddress.substr(0, 4) + "...." + stxAddress.substr(stxAddress.length-4, stxAddress.length);
   return (
     <div>
@@ -65,9 +62,7 @@ export const Signout = () => {
       {/* Render the Main handlebars HTML page. */}
       {/* The following terenary operators will execute in sequence. */}
       {/* If you find the key in the Owners Table then render the Owner Dashboard.  */}
-      {/* {stxAddress === owner_details(str_stxAddress).o_id ? <h1>OWNER DASH</h1> : console.log("This account is not registered as an Owner.")} */}
       {stxAddress === owner_details(str_stxAddress).o_id ? <OwnerDash /> : console.log("This account is not registered as an Owner.")}      {/* If you find the key in the Walker Table then render the Walker Dashboard.  */}
-      {/* {stxAddress === walker_details(str_stxAddress).w_id ? <h1>WALKER DASH</h1> : console.log("This account is not registered as a Walker.")} */}
       {stxAddress === walker_details(str_stxAddress).w_id ? <WalkerDash /> : console.log("This account is not registered as a Walker.")}    </div>
     
   );

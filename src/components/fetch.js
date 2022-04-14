@@ -166,6 +166,7 @@ export const job_details = () => {
     }
 }
 export const pet_details = () => {
+    let pet_id;
     let pet_name;
     let pet_owner_id;
     let pet_type;
@@ -180,12 +181,14 @@ export const pet_details = () => {
         for (let i = 0; i < res.data.length; i++) {
             // If a walker_id matches the stxAddress then store that WALKER data locally
             if (res.data[i].owner_id === stxAddress) {
+                pet_id = res.data[i].id;
                 pet_name = res.data[i].pet_name;
                 pet_owner_id = res.data[i].owner_id;
                 pet_type = res.data[i].pet_type;
                 pet_description = res.data[i].description;
 
                 pet = {
+                    pet_id,
                     pet_name,
                     pet_owner_id,
                     pet_type,

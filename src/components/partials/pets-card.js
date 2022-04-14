@@ -6,6 +6,7 @@ import { userSession } from '../../auth';
 
 let stxAddress;
 // let str_stxAddress;
+let animalID;
 
 if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
@@ -18,12 +19,13 @@ if (userSession.isSignInPending()) {
 
   }
 
-function theBtn() {
+function theBtn(num) {
     var modal = document.getElementById("exampleModal");
     modal.style.display = "block";
+    animalID = pet_details().allPets[num].pet_id
 }
 
-function theBtnModal() {
+function theBtnModal(num) {
 
     async function createPostHandler() {
       
@@ -32,7 +34,6 @@ function theBtnModal() {
         const locationStr = document.querySelector('input[name="location"]').value.trim();
         const location = parseInt(locationStr);
         const owner_id = stxAddress; // replace with a variable
-
         const visitType = document.getElementById("visit-type");
         const selectedValue = visitType.options[visitType.selectedIndex].value;
         let walk;
@@ -56,7 +57,7 @@ function theBtnModal() {
                     completed: false,
                     owner_id: owner_id,
                     walker_id: null,
-                    animal_id: 1,
+                    animal_id: num,
                 }
             );
             return res.data.json;
@@ -66,7 +67,7 @@ function theBtnModal() {
 }
 
 const cardsArray = [];
-
+// pet_details().allPets[3].pet_id
 function Cards() {
     for(let i = 0; i < pet_details().allPets.length; i++) {
         cardsArray[i] =
@@ -77,7 +78,7 @@ function Cards() {
                         <h6 className="card-subtitle mb-2 text-muted">{pet_details().allPets[i].pet_type}</h6>
                         <p className="card-text">{pet_details().allPets[i].pet_description}</p>
                     </div>
-                    <button className="btn btn-lg btn-success" type="button" data-toggle="modal" data-target="#exampleModal" onClick={() => theBtn()}>New job</button>
+                    <button className="btn btn-lg btn-success" type="button" data-toggle="modal" data-target="#exampleModal" onClick={() => theBtn(i)}>New job</button>
                 </div>
             </div>
     }
@@ -119,7 +120,7 @@ function PetsCard() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" className="btn btn-primary" onClick={() => theBtnModal()}>Save changes</button>
+                            <button type="submit" className="btn btn-primary" onClick={() => theBtnModal(animalID)}>Save changes</button>
                         </div>
                     </div>
                     </div>

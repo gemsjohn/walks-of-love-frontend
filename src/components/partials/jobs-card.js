@@ -2,10 +2,9 @@ import React from 'react';
 // import axios from 'axios';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { increment, decrement } from '../actions';
-import { getUserData } from '../../auth';
 import { job_details } from '../fetch';
 
-const stxAddress = getUserData().profile.stxAddress.mainnet;
+
 let btnHandler;
 const jobsCardArray = [];
 
@@ -18,10 +17,6 @@ function JobsCard() {
             visit = "Check in"
         } else {
             visit = "Walk"
-        }
-
-        if (stxAddress !== 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367') {
-            btnHandler = <button id="accept-job" class="float-right btn success" type="button">Accept</button>;
         }
 
     jobsCardArray[i] = 
@@ -41,7 +36,7 @@ function JobsCard() {
                         {/* {{/unless}} */}
                         {/* {{!-- (HELPER) if logged in as walker and job not accepted --}}
                         {{#if acceptable}} */}
-                        {/* {btnHandler} */}
+                        <button id="accept-job" class="float-right btn success" type="button">Accept</button>
                         {/* {{/if}} */}
                     </div>
                 </div>

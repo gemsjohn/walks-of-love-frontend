@@ -14,12 +14,7 @@ import Homepage from './homepage';
 // to create standalone JS files for re-use. The current set up is NOT DRY.
 import OwnerDash from './owner-dashboard';
 import WalkerDash from './walker-dashboard';
-// import JobSearch from './jobsearch';
 
-// import { Dashboard } from './handlebars/dashboard';
-// import { Homepage } from './handlebars/homepage';
-// import { Jobsearch } from './handlebars/jobsearch';
-// import { WalkerDash } from './handlebars/walker-dashboard';
 
 // [[[[[[[[NEED TO UNCOMMENT WHEN SEVER GOES LIVE]]]]]]]]
 // import { owner_details, walker_details } from './fetch';
@@ -68,8 +63,6 @@ export const Signout = () => {
         </div>
       </div>
       {/* Render the Main handlebars HTML page. */}
-      {/* <Main />  */}
-      <h1>MAIN PAGE</h1>
       {/* The following terenary operators will execute in sequence. */}
       {/* If you find the key in the Owners Table then render the Owner Dashboard.  */}
       {/* {stxAddress === owner_details(str_stxAddress).o_id ? <h1>OWNER DASH</h1> : console.log("This account is not registered as an Owner.")} */}

@@ -6,6 +6,7 @@ import Homepage from './homepage';
 import JobSearch from './jobsearch';
 import { owner_details, walker_details } from './fetch';
 
+
 // Main handlebars HTML template. This is a necessity and it handles page formatting. 
 // import { Main } from './handlebars/main';
 
@@ -16,10 +17,15 @@ import OwnerDash from './owner-dashboard';
 import WalkerDash from './walker-dashboard';
 
 
+
 // [[[[[[[[NEED TO UNCOMMENT WHEN SEVER GOES LIVE]]]]]]]]
-// import { owner_details, walker_details } from './fetch';
-// console.log('owner: ', owner_details().o_id);
-// console.log('walker: ', walker_details().w_id);
+import { owner_details, walker_details } from './fetch';
+console.log('owner: ', owner_details().o_id);
+console.log('walker: ', walker_details().w_id);
+
+function Search() {
+  console.log("placeholder to navigate to search page")
+}
 
 
 // Signin function. Based on the App.jsx --> render() terenary operator this
@@ -61,6 +67,7 @@ export const Signout = () => {
           <ul className="nav navbar-nav ml-auto"></ul>
           <h6 className="address-color">{shortenedStxAddress} </h6>
           <button type="button" className="btn success" onClick={() => disconnect()}>Logout</button>
+          {stxAddress === walker_details(str_stxAddress).w_id ? <button type="button" className="btn success" onClick={() => Search()}>Search</button> : console.log("This account is not registered as a Walker.")}
         </div>
       </div>
       {/* Render the Main handlebars HTML page. */}

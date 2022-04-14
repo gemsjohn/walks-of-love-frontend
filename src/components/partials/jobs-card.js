@@ -5,6 +5,7 @@ import React from 'react';
 import { job_details } from '../fetch';
 
 
+
 let btnHandler;
 const jobsCardArray = [];
 

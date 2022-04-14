@@ -73,10 +73,10 @@ export const Signout = () => {
       {/* The following terenary operators will execute in sequence. */}
       {/* If you find the key in the Owners Table then render the Owner Dashboard.  */}
       {/* {stxAddress === owner_details(str_stxAddress).o_id ? <h1>OWNER DASH</h1> : console.log("This account is not registered as an Owner.")} */}
-      {stxAddress === 'SP2Q6C1P00N04NBE5HF2H81R52S3VD04V4BCBW59K' ? <OwnerDash /> : console.log("This account is not registered as an Owner.")}
+      {stxAddress === 'SP29AZWNBFXEHJGBQ2BMQ71W8R79DCA3NZQ7QJ367' ? <OwnerDash /> : console.log("This account is not registered as an Owner.")}
       {/* If you find the key in the Walker Table then render the Walker Dashboard.  */}
       {/* {stxAddress === walker_details(str_stxAddress).w_id ? <h1>WALKER DASH</h1> : console.log("This account is not registered as a Walker.")} */}
-      {stxAddress === 'SP20XG0Q9NW6N2HT6JZHXX6S5XZGS01P3QSVTTCMV' ? <WalkerDash /> : console.log("This account is not registered as a Walker.")}
+      {stxAddress === 'SP206YJ9G14C3FD0JZE3C92KZ3V35JVNVW93Q0VKQ' ? <WalkerDash /> : console.log("This account is not registered as a Walker.")}
     </div>
     
   );

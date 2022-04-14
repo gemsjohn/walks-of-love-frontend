@@ -5,7 +5,7 @@ import { pet_details } from '../fetch'
 import { userSession } from '../../auth';
 
 let stxAddress;
-let str_stxAddress;
+// let str_stxAddress;
 
 if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
@@ -13,9 +13,8 @@ if (userSession.isSignInPending()) {
       this.setState({ userData: userData });
     });
   } else if (userSession.isUserSignedIn()) {
-    console.log("else if statement");
     stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
-    str_stxAddress = JSON.stringify(stxAddress);
+    // str_stxAddress = JSON.stringify(stxAddress);
 
   }
 
@@ -72,7 +71,7 @@ function Cards() {
     for(let i = 0; i < pet_details().allPets.length; i++) {
         cardsArray[i] =
             <div className="col">
-                <div className="card" style={{width: '20rem', height: '14rem'}}>
+                <div className="card" style={{width: '20rem', height: '14rem', margin: '10px'}}>
                     <div className="card-body">
                         <h5 className="card-title">{pet_details().allPets[i].pet_name}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">{pet_details().allPets[i].pet_type}</h6>

@@ -9,20 +9,16 @@ import PetsCard from './partials/pets-card';
 import { userSession } from '../auth';
 
 let stxAddress;
-let str_stxAddress;
+// let str_stxAddress;
 
 if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
       window.history.replaceState({}, document.title, '/');
       this.setState({ userData: userData });
-      console.log("if statement");
     });
   } else if (userSession.isUserSignedIn()) {
-    // this.setState({ userData: userSession.loadUserData() });
-    console.log("else if statement");
     stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
-    str_stxAddress = JSON.stringify(stxAddress);
-    console.log(str_stxAddress);
+    // str_stxAddress = JSON.stringify(stxAddress);
 
   }
 
@@ -66,7 +62,6 @@ function DeleteJob(num) {
 
 
 function JobsCard() {
-    console.log(job_details().allJobs);
     for (let i = 0; i < job_details().allJobs.length; i++) {
         let visit;
         if (job_details().allJobs[i].j_check_in === true) {

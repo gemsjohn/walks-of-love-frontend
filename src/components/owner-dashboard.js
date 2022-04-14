@@ -40,6 +40,7 @@ function theBtn() {
         if ((pet_name, pet_type, description)) {
           const res = await axios.post('http://localhost:3001/api/pets',
             {
+                id: null,
                 pet_name: pet_name,
                 owner_id: owner_id,
                 pet_type: pet_type,

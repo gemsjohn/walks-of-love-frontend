@@ -1,5 +1,13 @@
-# Scout Application: 
+# Scout Application 
 # Walks - of - Love - Frontend Repository
+
+This repository uses React to support the Frontend UI and has been seperated from the Backend repository to mimic the structure of a real world development team. Hiro Wallet, a web extension, has been used to handle account authorization. 
+
+Hiro web wallet is unique because it was built for Stacks (STX), which a a cryptocurrency / blockchain that uses Bitcoin as its security layer. When a user creates an account with Hiro they are provided a 24 word seed phrase which is hashed to create a pair of public and private keys. Multiple accounts can be set up within the wallet and each account has a unique ID, which is perfect for single sign on and security.
+
+Using Hiro, the user can copy their public key (unique ID for each account), add it to the ID field on the hompage, enter their first and last name, email, password, and identify whether they are a pet owner or pet walker. Once the user submits the form, then their information is stored in the Database on the given API endpoint: /api/owner or /api/walker. Suggestion: create 2 accounts within the Hiro web wallet, sign Account 1 up as an Owner, and sign Account 2 up as a Walker.
+
+As long as the user has completed the form appropriately, they should be able to select Login, choose Account 1 or Account 2 from the Hiro Web Wallet modal, and the webpage should transition them to the given dashboard (owner/walker). From the Owner perspective, the user can create pets, create jobs based on the select pet, and delete jobs as needed. From the Walker perspective, the user can view the list of jobs available. Accept and delete functionality has not been added at the moment. 
 
 ## Pre-requisite 
 ### Step 1

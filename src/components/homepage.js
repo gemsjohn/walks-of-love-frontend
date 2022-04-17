@@ -1,6 +1,9 @@
+// Primary dependency
 import React from 'react';
 import axios from 'axios';
 
+// If the user enters details on the homepage form and selects submit, depending on the radio button selected the
+// details will be POST'ed to the Owner and Walker API endpoint.
 function theBtn() {
     async function createAccountHandler() {
       
@@ -41,9 +44,8 @@ function theBtn() {
         
 }
 
+// This handles the Homepage UI
 function Homepage() {
-    // createAccountHandler();
-
     return (
         <div>
             <div id="myModal" className="modal">

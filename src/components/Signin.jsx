@@ -1,3 +1,4 @@
+// Primary Dependency
 import React from 'react';
 import { authenticate, disconnect } from '../auth';
 import { getUserData } from '../auth';
@@ -6,6 +7,7 @@ import { owner_details, walker_details } from './fetch';
 import OwnerDash from './owner-dashboard';
 import WalkerDash from './walker-dashboard';
 
+// This function does not do much at the moment but is available for future feature integration.
 function Search() {
   console.log("placeholder to navigate to search page")
 }

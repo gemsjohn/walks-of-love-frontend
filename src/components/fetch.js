@@ -3,7 +3,6 @@ import axios from 'axios';
 import { userSession } from '../auth';
 
 let stxAddress;
-// let str_stxAddress;
 
 if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
@@ -12,7 +11,6 @@ if (userSession.isSignInPending()) {
     });
   } else if (userSession.isUserSignedIn()) {
     stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
-    // str_stxAddress = JSON.stringify(stxAddress);
 
   }
 // Export owner details: id, first_name, last_name, and email
@@ -61,7 +59,7 @@ export const owner_details = (stxAddress) => {
         o_email: o_local_email,
     }
 }
-
+// Export walker details: id, first_name, last_name, and email
 export const walker_details = (stxAddress) => {
     let w_user_id;
     let w_first_name;

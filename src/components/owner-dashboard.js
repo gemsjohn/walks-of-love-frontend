@@ -1,3 +1,4 @@
+// Primary dependencies
 import React from 'react';
 import axios from 'axios';
 import { job_details } from './fetch';
@@ -5,19 +6,21 @@ import PetsCard from './partials/pets-card';
 import { userSession } from '../auth';
 
 let stxAddress;
+const jobsCardArray = [];
 
+// If the user is signed in then load user data, specifically the mainnet Stacks Address (stxAddress) from the Hiro Wallet Profile. 
 if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
       window.history.replaceState({}, document.title, '/');
       this.setState({ userData: userData });
     });
-  } else if (userSession.isUserSignedIn()) {
+} else if (userSession.isUserSignedIn()) {
     stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
 
-  }
+}
 
-const jobsCardArray = [];
-
+// When the user enters Pet information and select confirm this function executes. 
+// This function POST's data to the Heroku DB (this can be switched out with localhost if the user chooses to run the backend repository).
 function theBtn() {
     async function commentFormHandler() {
         const pet_name = document.querySelector('input[name="pet-name"]').value.trim();
@@ -43,6 +46,7 @@ function theBtn() {
     commentFormHandler();
 }
 
+// Delete job from the list of jobs.
 function DeleteJob(num) {
     async function myFunction() {
         const res = await axios.delete(`https://pacific-depths-79804.herokuapp.com/api/jobs/` + num + ``);
@@ -51,6 +55,7 @@ function DeleteJob(num) {
     myFunction();
 }
 
+// This handles the the UI for Job Cards from the Owner Perspective
 function JobsCard() {
     for (let i = 0; i < job_details().allJobs.length; i++) {
         let visit;
@@ -81,7 +86,7 @@ function JobsCard() {
     return jobsCardArray;
 }
 
-
+// This handles the Owner Dashboard UI
 function OwnerDash() {
     JobsCard(); 
     return (

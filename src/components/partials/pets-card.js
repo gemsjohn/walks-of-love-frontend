@@ -1,12 +1,15 @@
+// Primary dependencies
 import React from 'react';
 import axios from 'axios';
 import { pet_details } from '../fetch'
-
 import { userSession } from '../../auth';
 
+// Variables
 let stxAddress;
 let animalID;
+const cardsArray = [];
 
+// If the user is signed in then load user data, specifically the mainnet Stacks Address (stxAddress) from the Hiro Wallet Profile. 
 if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
       window.history.replaceState({}, document.title, '/');
@@ -16,12 +19,14 @@ if (userSession.isSignInPending()) {
     stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
   }
 
+// If the user select 'New Job' on the pet card then this function runs and populates a modal on screen.   
 function theBtn(num) {
     var modal = document.getElementById("exampleModal");
     modal.style.display = "block";
     animalID = pet_details().allPets[num].pet_id
 }
 
+// If the user selects to 'save changes' on the modal and the necessary information has been included on the modal then this function runs.
 function theBtnModal(num) {
 
     async function createPostHandler() {
@@ -63,8 +68,8 @@ function theBtnModal(num) {
     createPostHandler();
 }
 
-const cardsArray = [];
-// pet_details().allPets[3].pet_id
+
+// Pet Card UI
 function Cards() {
     for(let i = 0; i < pet_details().allPets.length; i++) {
         cardsArray[i] =
@@ -81,6 +86,7 @@ function Cards() {
     }
 }
 
+// New Job Modal UI
 function PetsCard() {
     Cards();
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import JobsCard from './partials/jobs-card';
 
+// This function handles the Job Search UI. The Job Search is currently not accesssible at the moment but is available for future feature integration.
 function JobSearch() {
     return (
         <div>

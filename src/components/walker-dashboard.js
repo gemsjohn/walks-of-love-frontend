@@ -1,12 +1,15 @@
+// Primary dependencies
 import React from 'react';
 import axios from 'axios';
 import { job_details } from './fetch';
-
 import { userSession } from '../auth';
 
+// Variables
 let stxAddress;
 let str_stxAddress;
+const jobsCardArray = [];
 
+// If the user is signed in then load user data, specifically the mainnet Stacks Address (stxAddress) from the Hiro Wallet Profile. 
 if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
       window.history.replaceState({}, document.title, '/');
@@ -18,9 +21,7 @@ if (userSession.isSignInPending()) {
 
   }
 
-const jobsCardArray = [];
-
-// This currently produces a 404 error
+// This currently produces a 404 error and therefor does not work
 function AcceptJob(num) {
     console.log("Accepted: ", num, "stxAddress: ", str_stxAddress);
     async function myFunction() {
@@ -30,7 +31,7 @@ function AcceptJob(num) {
     myFunction();
 }
 
-
+// This handles the the UI for Job Cards from the Walker Perspective
 function JobsCard() {
     for (let i = 0; i < job_details().allJobs.length; i++) {
         let visit;
@@ -52,17 +53,9 @@ function JobsCard() {
                                 <h5 class="card-text">Pay: {job_details().allJobs[i].j_pay}</h5>
                                 <h6 class="card-text text-muted">Time: {job_details().allJobs[i].j_timeframe}</h6>
                                 <h6 class="card-text text-muted">Location: {job_details().allJobs[i].j_location}</h6>
-                                {/* {{!-- (HELPER) function that determines if the person logged in is the creator of this job and it's active--}} */}
-                                {/* {{#unless completed}} */}
-                                {/* <button id="delete-job" class="float-right btn success" type="button">Delete</button> */}
-                                {/* {{/unless}} */}
-                                {/* {{!-- (HELPER) if logged in as walker and job not accepted --}}
-                                {{#if acceptable}} */}
                                 <button id="accept-job" class="float-right btn success" type="button" onClick={() => AcceptJob(job_details().allJobs[i].j_id)}>Accept</button>
-                                {/* {{/if}} */}
                             </div>
                         </div>
-                        {/* {{/each}} */}
                     </div>
                 </div>;
         }
@@ -70,6 +63,7 @@ function JobsCard() {
     return jobsCardArray;
 }
 
+// This handles the Walker Dashboard UI
 function WalkerDash() {
     JobsCard();
     return (

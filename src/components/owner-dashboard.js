@@ -1,15 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { increment, decrement } from '../actions';
 import { job_details } from './fetch';
 import PetsCard from './partials/pets-card';
-// import JobsCard from './partials/jobs-card';
-
 import { userSession } from '../auth';
 
 let stxAddress;
-// let str_stxAddress;
 
 if (userSession.isSignInPending()) {
     userSession.handlePendingSignIn().then(userData => {
@@ -18,7 +13,6 @@ if (userSession.isSignInPending()) {
     });
   } else if (userSession.isUserSignedIn()) {
     stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
-    // str_stxAddress = JSON.stringify(stxAddress);
 
   }
 
@@ -34,7 +28,7 @@ function theBtn() {
         const description = document.querySelector('textarea[name="about-pet"]').value.trim();
       
         if ((pet_name, pet_type, description)) {
-          const res = await axios.post('http://localhost:3001/api/pets',
+          const res = await axios.post('https://pacific-depths-79804.herokuapp.com/api/pets',
             {
                 id: null,
                 pet_name: pet_name,
@@ -45,21 +39,17 @@ function theBtn() {
           );
           return res.data.json;   
         }
-
       }
-      
     commentFormHandler();
 }
 
-// Currently can be executed manually
 function DeleteJob(num) {
     async function myFunction() {
-        const res = await axios.delete(`http://localhost:3001/api/jobs/` + num + ``);
+        const res = await axios.delete(`https://pacific-depths-79804.herokuapp.com/api/jobs/` + num + ``);
         return res.data.json;
     }
     myFunction();
 }
-
 
 function JobsCard() {
     for (let i = 0; i < job_details().allJobs.length; i++) {
@@ -81,17 +71,9 @@ function JobsCard() {
                             <h5 class="card-text">Pay: {job_details().allJobs[i].j_pay}</h5>
                             <h6 class="card-text text-muted">Time: {job_details().allJobs[i].j_timeframe}</h6>
                             <h6 class="card-text text-muted">Location: {job_details().allJobs[i].j_location}</h6>
-                            {/* {{!-- (HELPER) function that determines if the person logged in is the creator of this job and it's active--}} */}
-                            {/* {{#unless completed}} */}
                             <button id="delete-job" class="float-right btn success" type="button" onClick={() => DeleteJob(job_details().allJobs[i].j_id)}>Delete</button>
-                            {/* {{/unless}} */}
-                            {/* {{!-- (HELPER) if logged in as walker and job not accepted --}}
-                            {{#if acceptable}} */}
-                            {/* <button id="accept-job" class="float-right btn success" type="button">Accept</button> */}
-                            {/* {{/if}} */}
                         </div>
                     </div>
-                    {/* {{/each}} */}
                 </div>
             </div>;
         }

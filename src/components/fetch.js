@@ -24,7 +24,7 @@ export const owner_details = (stxAddress) => {
 
     // Read data from the Heroku DB /ap/owners
     async function myFunction() {
-        const res = await axios.get(`http://localhost:3001/api/owners`);
+        const res = await axios.get(`https://pacific-depths-79804.herokuapp.com/api/owners`);
           //   const body = await res.json(); // NOTE TO SELF: could this be used?
 
         // Loop through all of the data
@@ -69,7 +69,7 @@ export const walker_details = (stxAddress) => {
     let w_email;
 
     async function myFunction() {
-        const res = await axios.get(`http://localhost:3001/api/walkers`);
+        const res = await axios.get(`https://pacific-depths-79804.herokuapp.com/api/walkers`);
         // Loop through the Walkers DB
         for (let i = 0; i < res.data.length; i++) {
             // If a walker_id matches the stxAddress then store that WALKER data locally
@@ -117,7 +117,7 @@ export const job_details = () => {
     let job;
 
     async function myFunction() {
-        const res = await axios.get(`http://localhost:3001/api/jobs`);
+        const res = await axios.get(`https://pacific-depths-79804.herokuapp.com/api/jobs`);
         // Loop through the Jobs DB
         for (let i = 0; i < res.data.length; i++) {
             // If an owner_id matches the stxAddress then store that JOB data locally
@@ -153,7 +153,7 @@ export const job_details = () => {
                 }; 
                 allJobs.push(job);
             } else {
-                console.log("Address not available.");
+                // console.log("Address not available.");
             }
         }
         localStorage.setItem('allJobs', JSON.stringify(allJobs));
@@ -176,7 +176,7 @@ export const pet_details = () => {
     let pet;
 
     async function myFunction() {
-        const res = await axios.get(`http://localhost:3001/api/pets`);
+        const res = await axios.get(`https://pacific-depths-79804.herokuapp.com/api/pets`);
         // Loop through the Walkers DB
         for (let i = 0; i < res.data.length; i++) {
             // If a walker_id matches the stxAddress then store that WALKER data locally
@@ -196,7 +196,7 @@ export const pet_details = () => {
                 };
                 allPets.push(pet);
             } else {
-                console.log("Address not available.");
+                // console.log("Address not available.");
             }
         }
         localStorage.setItem('allPets', JSON.stringify(allPets));

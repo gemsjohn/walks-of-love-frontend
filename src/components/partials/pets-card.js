@@ -5,7 +5,6 @@ import { pet_details } from '../fetch'
 import { userSession } from '../../auth';
 
 let stxAddress;
-// let str_stxAddress;
 let animalID;
 
 if (userSession.isSignInPending()) {
@@ -15,8 +14,6 @@ if (userSession.isSignInPending()) {
     });
   } else if (userSession.isUserSignedIn()) {
     stxAddress = userSession.loadUserData().profile.stxAddress.mainnet;
-    // str_stxAddress = JSON.stringify(stxAddress);
-
   }
 
 function theBtn(num) {
@@ -47,7 +44,7 @@ function theBtnModal(num) {
         }
 
         if ((pay, location)) {
-            const res = await axios.post('http://localhost:3001/api/jobs', 
+            const res = await axios.post('https://pacific-depths-79804.herokuapp.com/api/jobs', 
                 {
                     pay: pay,
                     check_in: check_in,

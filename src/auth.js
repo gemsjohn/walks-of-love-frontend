@@ -10,8 +10,8 @@ export const userSession = new UserSession({ appConfig });
 export function authenticate() {
   showConnect({
     appDetails: {
-      name: 'Test',
-      icon: window.location.origin + './assets/puppy.png',
+      name: 'Scout',
+      icon: window.location.origin + '/assets/puppy.png',
     },
     redirectTo: '/',
     onFinish: () => {

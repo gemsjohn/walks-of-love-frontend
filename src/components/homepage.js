@@ -13,7 +13,7 @@ function theBtn() {
         if ((id, email, first_name, last_name, password)) {
   
             if(document.getElementById('own').checked) {
-                const res = await axios.post('http://localhost:3001/api/owners', 
+                const res = await axios.post('https://pacific-depths-79804.herokuapp.com/api/owners', 
                     {
                         id: id,
                         first_name: first_name,
@@ -24,7 +24,7 @@ function theBtn() {
                 );
                 return res.data.json;
             } else if (document.getElementById('walk').checked) {
-                const res = await axios.post('http://localhost:3001/api/walkers', 
+                const res = await axios.post('https://pacific-depths-79804.herokuapp.com/api/walkers', 
                     {
                         id: id,
                         first_name: first_name,

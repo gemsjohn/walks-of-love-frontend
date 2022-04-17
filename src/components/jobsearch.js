@@ -1,6 +1,4 @@
 import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { increment, decrement } from '../actions';
 import JobsCard from './partials/jobs-card';
 
 function JobSearch() {

@@ -31,9 +31,9 @@ body {
 }
 
 .pets-text {
-  color: black;
+  color: #444;
   font-family: 'Old Standard TT', serif;
-  margin: 0 0 1% 10%;
+  margin: 0 0 1% 5%;
 }
 
 /* .nav-link {
